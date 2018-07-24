@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!-- mybatis全局设置 -->
+    <settings>
+        <!--使用数据库自增id-->
+        <setting name="useGeneratedKeys" value="true" />
+
+        <setting name="useColumnLabel" value="true" />
+
+        <!-- 开启驼峰命名规范-->
+        <setting name="mapUnderscoreToCamelCase" value="true" />
+    </settings>
+
+
+
+    <!-- 自定义mybatis 的plugin，实现数据库查询分页-->
+    <!-- MyBATIS是在初始化上下文环境的时候就初始化插件的，mybatis 的plugin实质上就是拦截器-->
+    <plugins>
+        <plugin interceptor="com.ljheee.page.interceptor.PageInterceptor">
+            <!--property指定分页参数-->
+            <property name="page.limit" value="2"/>
+        </plugin>
+    </plugins>
+
+</configuration>

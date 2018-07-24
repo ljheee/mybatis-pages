@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- Mapper.xml 必须要包含上面的DTD头部（DOCTYPE）  -->
+
+
+<!-- namespace为命名空间，应该是mapper接口的全称-->
+<mapper namespace="com.ljheee.page.dao.UserDAO">
+
+    <resultMap id="userResultMap" type="com.ljheee.page.entity.User">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="passwd" property="passwd"/>
+        <result column="appid" property="appid"/>
+    </resultMap>
+
+
+
+    <select id="getUserList" resultMap="userResultMap">
+        SELECT * FROM user
+    </select>
+
+
+</mapper>
+
+
